@@ -16,9 +16,13 @@ url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_
 web_driver.get(url)
 
 # Get select button
-x_path_next_button = "//button[@class='v-pagination__navigation']"
-WebDriverWait(web_driver, 20).until(EC.presence_of_element_located((By.XPATH, x_path_next_button)))
-next_page_button = web_driver.find_element(By.XPATH, x_path_next_button)
+x_path_next_button = "//button[@aria-label='Next page']"
 
-# Click on button
-next_page_button.click()
+# Go through different pages
+while True:
+    WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, x_path_next_button)))
+    next_page_button = web_driver.find_element(By.XPATH, x_path_next_button)
+    action = webdriver.ActionChains(web_driver)
+    action.pause(3)
+    action.perform()
+    next_page_button.click()
