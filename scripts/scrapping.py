@@ -31,7 +31,6 @@ for i, row in enumerate(rows):
     for column in columns:
         out.append(column.text)
     data.append(out)
-print(data)
 
 # Close driver
 web_driver.quit()
@@ -40,4 +39,5 @@ web_driver.quit()
 results = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "Pos_in_swim", "Swim_time", "T1",
                                       "Pos_in_bike", "Bike_time", "CUM", "T2",
                                       "Pos_in_run", "Run_time", "Race_control", "Time", "Rank", "Category", "Pic", "Star"])
+results.drop(columns=["Country", "CUM", "Pic", "Star"], inplace=True)
 results.to_csv("data/test_page_one.csv", index=False)
