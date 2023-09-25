@@ -22,7 +22,7 @@ data = []
 x_path_table = "//tbody[@class='table-data']"
 x_path_row = "//tr[@class='last-record-line']"
 x_path_next_button = "//button[@aria-label='Next page']"
-pages_number = 17
+pages_number = 16
 
 # Get elements
 for i in range(pages_number):
