@@ -8,9 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 
 # Driver installation
-options = webdriver.ChromeOptions()
-options.add_argument("--headless=new")
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
 # Define URL
 url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_alpehuez/generic/198021_2/home/TRI2"
@@ -19,7 +17,7 @@ url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_
 driver.get(url)
 
 # Wait until presence of element
-WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.XPATH, "//tbody[@class='table-date']")))
+WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, "//tbody[@class='table-date']")))
 
 # Set table and rows to go through
 table = driver.find_element(By.XPATH, "//tbody[@class='table-date']")
