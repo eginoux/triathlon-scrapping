@@ -8,7 +8,9 @@ from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
 
 # Driver installation
-driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
+options = webdriver.ChromeOptions()
+options.add_argument("--headless=new")
+driver = webdriver.Chrome(options=options)
 
 # Define URL
 url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_alpehuez/generic/198021_2/home/TRI2"
