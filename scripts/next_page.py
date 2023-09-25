@@ -19,10 +19,19 @@ web_driver.get(url)
 x_path_next_button = "//button[@aria-label='Next page']"
 
 # Go through different pages
-while True:
-    WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, x_path_next_button)))
-    next_page_button = web_driver.find_element(By.XPATH, x_path_next_button)
-    action = webdriver.ActionChains(web_driver)
+# while True:
+#     WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, x_path_next_button)))
+#     next_page_button = web_driver.find_element(By.XPATH, x_path_next_button)
+#     action = webdriver.ActionChains(web_driver)
+#     action.pause(3)
+#     action.perform()
+#     next_page_button.click()
+
+# Next_page function:
+def next_page(driver, button_x_path):
+    WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, button_x_path)))
+    next_page_button = driver.find_element(By.XPATH, button_x_path)
+    action = webdriver.ActionChains(driver)
     action.pause(3)
     action.perform()
     next_page_button.click()
