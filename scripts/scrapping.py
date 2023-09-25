@@ -16,22 +16,24 @@ url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_
 # Load web page
 driver.get(url)
 
-# Set maximum time of loading
-driver.implicitly_wait(10)
+# Wait until presence of element
+WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.XPATH, "//tbody[@class='table-date']")))
 
-# Set lists of elements
-names = []
+# Set table and rows to go through
+table = driver.find_element(By.XPATH, "//tbody[@class='table-date']")
+rows = driver.find_element(By.XPATH, "//tr[@class='last-record-line']")
 
-# Find all names
-name_elements = driver.find_elements(By.CLASS_NAME, "text-bold")
-for name in name_elements:
-    information = name.get_attribute("span").text
-    # information = name.find_element(By.TAG_NAME, "span").text
-    names.append(information)
+# Get elements from each row
+for i, row in enumerate(rows):
+    out = []
+    columns = driver.find_element(By.TAG_NAME, "td")
+    for column in columns:
+        out.append(column)
+    print(out)
 
 # Close driver
 driver.quit()
 
 # Save data
-results = pd.DataFrame(list(zip(names)), columns=['Name'])
-results.to_csv("data/test_names.csv",index=False)
+# results = pd.DataFrame(list(zip(names)), columns=['Name'])
+# results.to_csv("data/test_names.csv", index=False)
