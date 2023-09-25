@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
+from pathlib import Path
 
 # Driver installation
 web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -41,3 +42,11 @@ results = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "
                                       "Pos_in_run", "Run_time", "Race_control", "Time", "Rank", "Category", "Pic", "Star"])
 results.drop(columns=["Country", "CUM", "Pic", "Star"], inplace=True)
 results.to_csv("data/test_page_one.csv", index=False)
+
+# Check if file exists
+my_file = Path("data/test_page_one.csv")
+
+if my_file.exists() and len(results) > 0:
+    print("Finished ✅")
+else:
+    print("Something went wrong 😵‍💫")
