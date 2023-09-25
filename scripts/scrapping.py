@@ -21,12 +21,12 @@ WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.XPATH, "
 
 # Set table and rows to go through
 table = driver.find_element(By.XPATH, "//tbody[@class='table-date']")
-rows = driver.find_element(By.XPATH, "//tr[@class='last-record-line']")
+rows = table.find_elements(By.XPATH, "//tr[@class='last-record-line']")
 
 # Get elements from each row
 for i, row in enumerate(rows):
     out = []
-    columns = driver.find_element(By.TAG_NAME, "td")
+    columns = row.find_elements(By.TAG_NAME, "td")
     for column in columns:
         out.append(column)
     print(out)

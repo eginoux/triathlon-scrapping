@@ -19,3 +19,4 @@ for i,row in enumerate(rows):
     cols = row.find_elements(By.TAG_NAME, "td")
     for c in cols:
         out.append(c.text)
+    print(out)
