@@ -24,15 +24,20 @@ table = web_driver.find_element(By.XPATH, "//tbody[@class='table-data']")
 rows = table.find_elements(By.XPATH, "//tr[@class='last-record-line']")
 
 # Get elements
+data = []
 for i, row in enumerate(rows):
     out = []
     columns = row.find_elements(By.TAG_NAME, "td")
     for column in columns:
         out.append(column.text)
+    data.append(out)
+print(data)
 
 # Close driver
 web_driver.quit()
 
 # Save data
-# results = pd.DataFrame(list(zip(names)), columns=['Name'])
-# results.to_csv("data/test_names.csv", index=False)
+results = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "Pos_in_swim", "Swim_time", "T1",
+                                      "Pos_in_bike", "Bike_time", "CUM", "T2",
+                                      "Pos_in_run", "Run_time", "Race_control", "Time", "Rank", "Category", "Pic", "Star"])
+results.to_csv("data/test_page_one.csv", index=False)
