@@ -53,10 +53,10 @@ results = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "
 results.drop(columns=["Country", "CUM", "Pic", "Star"], inplace=True)
 
 # Save data frame into csv file
-results.to_csv("data/triathlon_m_results.csv", index=False)
+results.to_csv("data/medium_men_results.csv", index=False)
 
 # Check if file exists
-my_file = Path("data/triathlon_m_results.csv")
+my_file = Path("data/medium_men_results.csv")
 
 if my_file.exists() and len(results) > 0:
     print("Finished ✅")
