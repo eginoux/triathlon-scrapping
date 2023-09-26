@@ -20,7 +20,7 @@ web_driver.get(url)
 # Set variables
 data = []
 x_path_table = "//tbody[@class='table-data']"
-x_path_row = "//tr[@class='last-record-line']"
+x_path_row = "//tr[@class='cr-pink last-record-line']"
 x_path_next_button = "//button[@aria-label='Next page']"
 pages_number = 16
 
@@ -53,10 +53,10 @@ results = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "
 results.drop(columns=["Country", "CUM", "Pic", "Star"], inplace=True)
 
 # Save data frame into csv file
-results.to_csv("data/medium_men_results.csv", index=False)
+results.to_csv("data/medium_women_results.csv", index=False)
 
 # Check if file exists
-my_file = Path("data/medium_men_results.csv")
+my_file = Path("data/medium_women_results.csv")
 
 if my_file.exists() and len(results) > 0:
     print("Finished ✅")
