@@ -58,7 +58,7 @@ def get_results(dataframe):
             my_time = my_time[0]
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
-            print(f"{column} was {my_time} and the average {column} for {category} was {mean_time}")
+            print(f"{column} was {my_time} and the average {column} for {category} category was {mean_time}")
     else:
         my_row = dataframe[dataframe["Name"] == name]
         date_time_columns = list(dataframe.select_dtypes(include = ["datetime64[ns]"]).columns)
