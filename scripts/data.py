@@ -3,7 +3,7 @@ import pandas as pd
 
 def get_clean_data(mens_df, women_df):
     """
-    Lorem ipsum
+    Takes mens and women data frames and return a cleaned data frame
     """
     # Drop duplicates
     mens_df.drop_duplicates(inplace=True)

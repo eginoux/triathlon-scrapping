@@ -11,7 +11,7 @@ from scripts.params import *
 
 def scrape_mens_results():
     """
-    Lorem ipsum
+    Scrapping mens results for website and returns a data frame with data ordered like website
     """
     # Driver installation
     web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -62,7 +62,7 @@ def scrape_mens_results():
 
 def scrape_women_results():
     """
-    Lorem ipsum
+    Scrapping women results for website and returns a data frame with data ordered like website
     """
     # Driver installation
     web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
