@@ -1,15 +1,14 @@
 import pandas as pd
 import os
-from params import *
-from scripts.scraping import scrape_mens_results, scrape_women_results
-from scripts.data import get_clean_data
+from scripts.params import *
+from behind_scenes.scraping import scrape_mens_results, scrape_women_results
+from behind_scenes.data import get_clean_data
 
 
 def get_results():
     """
     Lorem ipsum
     """
-
     # Check if raw_data directory exists
     if not os.path.exists(DATA_DIR_PATH):
         os.makedirs(DATA_DIR_PATH)
