@@ -1,4 +1,6 @@
 import pandas as pd
+import os
+from params import *
 from scripts.scraping import scrape_mens_results, scrape_women_results
 from scripts.data import get_clean_data
 
@@ -7,9 +9,22 @@ def get_results():
     """
     Lorem ipsum
     """
-    # mens_df = scrape_mens_results()
-    # women_df = scrape_women_results()
-    # dataframe = get_clean_data(mens_df, women_df)
+
+    # Check if raw_data directory exists
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR)
+    # Check if mens file is in data directory
+    if os.path.exists(CSV_MENS_PATH):
+        mens_df = pd.read_csv(CSV_MENS_PATH)
+    else:
+        mens_df = scrape_mens_results()
+    # Check if women file is in data directory
+    if os.path.exists(CSV_WOMEN_PATH):
+        women_df = pd.read_csv(CSV_WOMEN_PATH)
+    else:
+        women_df = scrape_women_results()
+
+    dataframe = get_clean_data(mens_df, women_df)
     name = input("Enter a valid participant name: ")
     question = input("Do you want to specify a category? [Y/n] ")
     if question == "Y":
@@ -36,6 +51,8 @@ def get_results():
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
             print(f"{name} {column} was {my_time} and the average {column} for {category} was {mean_time}")
+
+
 
 
 

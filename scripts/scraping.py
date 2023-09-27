@@ -5,6 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
+import os
 from scripts.params import *
 
 
@@ -48,10 +49,13 @@ def scrape_mens_results():
     # Create data frame
     mens_df = pd.DataFrame(data, columns = STARTING_COLUMNS)
     mens_df.drop(columns=DROP_COLUMNS, inplace=True)
-    print("Data scraped ✅")
+    print("Mens data scraped ✅")
 
     # Save file
-    mens_df.to_csv("data/medium_mens_results.csv", index=False)
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR)
+    mens_df.to_csv(CSV_MENS_PATH, index=False)
+    print("Mens data saved ✅")
 
     return mens_df
 
@@ -93,9 +97,12 @@ def scrape_women_results():
     # Create data frame
     women_df = pd.DataFrame(data, columns=STARTING_COLUMNS)
     women_df.drop(columns=DROP_COLUMNS, inplace=True)
-    print("Data scraped ✅")
+    print("Women data scraped ✅")
 
     # Save file
-    women_df.to_csv("data/medium_women_results.csv", index=False)
+    if not os.path.exists(DATA_DIR):
+        os.makedirs(DATA_DIR)
+    women_df.to_csv(CSV_WOMEN_PATH, index=False)
+    print("Women data saved ✅")
 
     return women_df
