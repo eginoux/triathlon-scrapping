@@ -5,9 +5,10 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 import pandas as pd
+from scripts.params import *
 
 
-def scrape_mens_results(url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_alpehuez/generic/198021_2/home/TRI2"):
+def scrape_mens_results():
     """
     Lorem ipsum
     """
@@ -15,23 +16,20 @@ def scrape_mens_results(url = "https://www.acn-timing.com/?lng=FR#/events/214142
     web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     # Load web page
-    web_driver.get(url)
+    web_driver.get(URL)
 
     # Set variables
     data = []
-    x_path_table = "//tbody[@class='table-data']"
-    x_path_row = "//tr[@class='last-record-line']"
-    x_path_next_button = "//button[@aria-label='Next page']"
-    pages_number = 16
-    print("Scraping mens data")
+    print("Scraping mens data ⏳")
 
     # Get elements
-    for i in range(pages_number):
+    data = []
+    for i in range(PAGES_NUMBER):
         # Wait until presence of element
-        WebDriverWait(web_driver, 20).until(EC.presence_of_element_located((By.XPATH, x_path_table)))
+        WebDriverWait(web_driver, 20).until(EC.presence_of_element_located((By.XPATH, X_PATH_TABLE)))
         # Set table and rows to go through
-        table = web_driver.find_element(By.XPATH, x_path_table)
-        rows = table.find_elements(By.XPATH, x_path_row)
+        table = web_driver.find_element(By.XPATH, X_PATH_TABLE)
+        rows = table.find_elements(By.XPATH, X_PATH_ROW_MENS)
         # Get Data
         for i, row in enumerate(rows):
             out = []
@@ -40,24 +38,25 @@ def scrape_mens_results(url = "https://www.acn-timing.com/?lng=FR#/events/214142
                 out.append(column.text)
             data.append(out)
         # Go to the next page
-        WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, x_path_next_button)))
-        next_page_button = web_driver.find_element(By.XPATH, x_path_next_button)
+        WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, X_PATH_NEXT_BUTTON)))
+        next_page_button = web_driver.find_element(By.XPATH, X_PATH_NEXT_BUTTON)
         next_page_button.click()
 
     # Close driver
     web_driver.quit()
 
     # Create data frame
-    mens_df = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "Pos_in_swim", "Swim_time", "T1",
-                                        "Pos_in_bike", "Bike_time", "CUM", "T2",
-                                        "Pos_in_run", "Run_time", "Race_control", "Time", "Rank", "Category", "Pic", "Star"])
-    mens_df.drop(columns=["Country", "CUM", "Pic", "Star"], inplace=True)
+    mens_df = pd.DataFrame(data, columns = STARTING_COLUMNS)
+    mens_df.drop(columns=DROP_COLUMNS, inplace=True)
     print("Data scraped ✅")
+
+    # Save file
+    mens_df.to_csv("data/medium_mens_results.csv", index=False)
 
     return mens_df
 
 
-def scrape_women_results(url = "https://www.acn-timing.com/?lng=FR#/events/2141423449174261/ctx/20230725_alpehuez/generic/198021_2/home/TRI2"):
+def scrape_women_results():
     """
     Lorem ipsum
     """
@@ -65,23 +64,17 @@ def scrape_women_results(url = "https://www.acn-timing.com/?lng=FR#/events/21414
     web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
 
     # Load web page
-    web_driver.get(url)
-
-    # Set variables
-    data = []
-    x_path_table = "//tbody[@class='table-data']"
-    x_path_row = "//tr[@class='cr-pink last-record-line']"
-    x_path_next_button = "//button[@aria-label='Next page']"
-    pages_number = 16
-    print("Scraping women data")
+    web_driver.get(URL)
 
     # Get elements
-    for i in range(pages_number):
+    data = []
+    print("Scraping women data ⏳")
+    for i in range(PAGES_NUMBER):
         # Wait until presence of element
-        WebDriverWait(web_driver, 20).until(EC.presence_of_element_located((By.XPATH, x_path_table)))
+        WebDriverWait(web_driver, 20).until(EC.presence_of_element_located((By.XPATH, X_PATH_TABLE)))
         # Set table and rows to go through
-        table = web_driver.find_element(By.XPATH, x_path_table)
-        rows = table.find_elements(By.XPATH, x_path_row)
+        table = web_driver.find_element(By.XPATH, X_PATH_TABLE)
+        rows = table.find_elements(By.XPATH, X_PATH_ROW_WOMEN)
         # Get Data
         for i, row in enumerate(rows):
             out = []
@@ -90,18 +83,19 @@ def scrape_women_results(url = "https://www.acn-timing.com/?lng=FR#/events/21414
                 out.append(column.text)
             data.append(out)
         # Go to the next page
-        WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, x_path_next_button)))
-        next_page_button = web_driver.find_element(By.XPATH, x_path_next_button)
+        WebDriverWait(web_driver, 10).until(EC.presence_of_element_located((By.XPATH, X_PATH_NEXT_BUTTON)))
+        next_page_button = web_driver.find_element(By.XPATH, X_PATH_NEXT_BUTTON)
         next_page_button.click()
 
     # Close driver
     web_driver.quit()
 
     # Create data frame
-    women_df = pd.DataFrame(data, columns=["Position", "Number", "Name", "Country", "Pos_in_swim", "Swim_time", "T1",
-                                        "Pos_in_bike", "Bike_time", "CUM", "T2",
-                                        "Pos_in_run", "Run_time", "Race_control", "Time", "Rank", "Category", "Pic", "Star"])
-    women_df.drop(columns=["Country", "CUM", "Pic", "Star"], inplace=True)
+    women_df = pd.DataFrame(data, columns=STARTING_COLUMNS)
+    women_df.drop(columns=DROP_COLUMNS, inplace=True)
     print("Data scraped ✅")
+
+    # Save file
+    women_df.to_csv("data/medium_women_results.csv", index=False)
 
     return women_df

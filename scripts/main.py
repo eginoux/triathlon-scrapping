@@ -1,16 +1,21 @@
 import pandas as pd
 from scripts.scraping import scrape_mens_results, scrape_women_results
 from scripts.data import get_clean_data
-from scripts.results import get_results
 
 
-def get_results(name = "GINOUX Etienne", category = None):
+def get_results():
     """
     Lorem ipsum
     """
-    mens_df = scrape_mens_results()
-    women_df = scrape_women_results()
-    dataframe = get_clean_data(mens_df, women_df)
+    # mens_df = scrape_mens_results()
+    # women_df = scrape_women_results()
+    # dataframe = get_clean_data(mens_df, women_df)
+    name = input("Enter a valid participant name: ")
+    question = input("Do you want to specify a category? [Y/n] ")
+    if question == "Y":
+        category = input("Enter a valid category: ")
+    else:
+        category == None
 
     if category == None:
         my_row = dataframe[dataframe["Name"] == name]
@@ -31,7 +36,6 @@ def get_results(name = "GINOUX Etienne", category = None):
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
             print(f"{name} {column} was {my_time} and the average {column} for {category} was {mean_time}")
-
 
 
 
