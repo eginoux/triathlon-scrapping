@@ -13,7 +13,8 @@ STARTING_COLUMNS = ["Position", "Number", "Name", "Country", "Pos_in_swim",
                     "Category", "Pic", "Star"]
 DROP_COLUMNS = ["Country", "CUM", "Pic", "Star"]
 DATA_DIR = "raw_data"
+USER_PATH = os.getcwd()
 
 # Constants
-CSV_MENS_PATH = os.path.join(DATA_DIR, "medium_mens_results.csv")
-CSV_WOMEN_PATH = os.path.join(DATA_DIR, "medium_women_results.csv")
+CSV_MENS_PATH = os.path.join(USER_PATH, DATA_DIR, "medium_mens_results.csv")
+CSV_WOMEN_PATH = os.path.join(USER_PATH, DATA_DIR, "medium_women_results.csv")

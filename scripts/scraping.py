@@ -52,8 +52,8 @@ def scrape_mens_results():
     print("Mens data scraped ✅")
 
     # Save file
-    if not os.path.exists(DATA_DIR):
-        os.makedirs(DATA_DIR)
+    if not os.path.exists(DATA_DIR_PATH):
+        os.makedirs(DATA_DIR_PATH)
     mens_df.to_csv(CSV_MENS_PATH, index=False)
     print("Mens data saved ✅")
 
@@ -100,8 +100,8 @@ def scrape_women_results():
     print("Women data scraped ✅")
 
     # Save file
-    if not os.path.exists(DATA_DIR):
-        os.makedirs(DATA_DIR)
+    if not os.path.exists(DATA_DIR_PATH):
+        os.makedirs(DATA_DIR_PATH)
     women_df.to_csv(CSV_WOMEN_PATH, index=False)
     print("Women data saved ✅")
 
