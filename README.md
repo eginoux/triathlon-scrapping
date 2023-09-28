@@ -15,7 +15,7 @@ After retrieving the raw data, I cleaned it to make it more usable on a large sc
 Here is the output of the main.py file:
 
 Getting mens data from local directory ✅
-<br/> Getting women data from local directory ✅
+<br/> "Getting women data from local directory ✅
 <br/> Enter a valid participant: [LASTNAME Name] GINOUX Etienne
 <br/> Do you want to specify a category? [Y/n] n
 <br/> ########## Please find GINOUX Etienne results below ##########
@@ -24,6 +24,7 @@ Getting mens data from local directory ✅
 <br/> Bike_time was 02:26:27 (average was 01:59:18)
 <br/> T2 was 00:03:59 (average was 00:02:21)
 <br/> Run_time was 00:40:46 (average was 00:39:58)
-<br/> Time was 04:03:25 (average was 03:17:49)
+<br/> Time was 04:03:25 (average was 03:17:49)"
+
 
 Next challenge: long-distance triathlon in 2024!
