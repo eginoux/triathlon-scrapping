@@ -13,6 +13,7 @@ After retrieving the raw data, I cleaned it to make it more usable on a large sc
 - Display the results for the participant and the overall averages or based on the category.
 
 Here is the output of the main.py file:
+
 <br/> Getting mens data from local directory ✅
 <br/> Getting women data from local directory ✅
 <br/> Enter a valid participant: [LASTNAME Name] GINOUX Etienne
