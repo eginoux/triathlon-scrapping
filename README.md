@@ -18,13 +18,13 @@ Getting mens data from local directory ✅
 <br/> Getting women data from local directory ✅
 <br/> Enter a valid participant: [LASTNAME Name] GINOUX Etienne
 <br/> Do you want to specify a category? [Y/n] n
-<br/> ########## Please find GINOUX Etienne results below ##########
-<br/> Swim_time was 00:38:09 (average was 00:31:50)
-<br/> T1 was 00:14:01 (average was 00:04:17)
-<br/> Bike_time was 02:26:27 (average was 01:59:18)
-<br/> T2 was 00:03:59 (average was 00:02:21)
-<br/> Run_time was 00:40:46 (average was 00:39:58)
-<br/> Time was 04:03:25 (average was 03:17:49)
+<br/> ###################### Please find GINOUX Etienne results below ######################
+<br/> Swim_time was 00:38:09 (average was 00:31:50, min was 00:17:22 and max was 00:58:39)
+<br/> T1 was 00:14:01 (average was 00:04:17, min was 00:01:19 and max was 00:24:29)
+<br/> Bike_time was 02:26:27 (average was 01:59:18, min was 01:08:58 and max was 03:13:29)
+<br/> T2 was 00:03:59 (average was 00:02:21, min was 00:00:47 and max was 00:15:07)
+<br/> RRun_time was 00:40:46 (average was 00:39:58, min was 00:22:58 and max was 01:08:30)
+<br/> Time was 04:03:25 (average was 03:17:49, min was 01:52:29 and max was 05:01:33)
 
 
 Next challenge: long-distance triathlon in 2024!
