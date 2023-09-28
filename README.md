@@ -7,10 +7,10 @@ After obtaining the results table, I wanted to conduct a more detailed race anal
 The first challenge was retrieving the data because the URL is static, and the data couldn't be obtained through a simple HTML parser with BeautifulSoup. So, I used Selenium, a Python package that allows me to retrieve the data and navigate the website pages by automatically clicking on the next page button.
 
 After retrieving the raw data, I cleaned it to make it more usable on a large scale. Today, the program allows you to:
-- Retrieve the data
+- Loading the data or get it from the web
 - Clean the data
-- Ask for the name of a participant and whether they want to provide a category or not
-- Display the results for the participant and the overall averages or based on the category.
+- Ask for the name of a participant and a category or not
+- Display the results for the participant and averages / min / max overall or based on the category if specified
 
 Here is the output of the main.py file:
 
