@@ -69,7 +69,7 @@ def get_results(dataframe):
             my_time = my_time[0]
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
-            print(f"{column} was {my_time} (average was {mean_time} for {category} category)")
+            print(f"{column} was {my_time} (average was {mean_time})")
 
 
 
