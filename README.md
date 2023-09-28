@@ -14,7 +14,7 @@ After retrieving the raw data, I cleaned it to make it more usable on a large sc
 
 Here is the output of the main.py file:
 
-<br/> Getting mens data from local directory ✅
+Getting mens data from local directory ✅
 <br/> Getting women data from local directory ✅
 <br/> Enter a valid participant: [LASTNAME Name] GINOUX Etienne
 <br/> Do you want to specify a category? [Y/n] n
