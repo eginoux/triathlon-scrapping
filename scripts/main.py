@@ -53,7 +53,7 @@ def get_results(dataframe):
         my_row = dataframe[dataframe["Name"] == name]
         dataframe = dataframe[dataframe["Category"] == category]
         date_time_columns = list(dataframe.select_dtypes(include = ["datetime64[ns]"]).columns)
-        print(f"{20 * '#'} Please find {name} results below {20 * '#'}")
+        print(f"{10 * '#'} Please find {name} results below {10 * '#'}")
         for column in date_time_columns:
             my_time = my_row[column].dt.time.astype(str).values
             my_time = my_time[0]
@@ -63,7 +63,7 @@ def get_results(dataframe):
     else:
         my_row = dataframe[dataframe["Name"] == name]
         date_time_columns = list(dataframe.select_dtypes(include = ["datetime64[ns]"]).columns)
-        print(f"{20 * '#'} Please find {name} results below {20 * '#'}")
+        print(f"{10 * '#'} Please find {name} results below {10 * '#'}")
         for column in date_time_columns:
             my_time = my_row[column].dt.time.astype(str).values
             my_time = my_time[0]
