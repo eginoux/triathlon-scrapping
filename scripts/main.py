@@ -31,7 +31,7 @@ def get_results(dataframe):
     Takes a data frame and then:
     - Asks for a participant name
     - Asks for a category or not and which one
-    Print results of participant and average timing depending category or
+    Print results of participant and average, min and max results depending category or
     whole competitors
     """
     name_list = list(dataframe["Name"].unique())
