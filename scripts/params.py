@@ -12,6 +12,10 @@ STARTING_COLUMNS = ["Position", "Number", "Name", "Country", "Pos_in_swim",
                     "Pos_in_run", "Run_time", "Race_control", "Time", "Rank",
                     "Category", "Pic", "Star"]
 DROP_COLUMNS = ["Country", "CUM", "Pic", "Star"]
+COLUMNS_ORDERING = ['Position', 'Pos_after_cleaning', 'Number', 'Name',
+                 'Pos_in_swim','Swim_time','T1','Pos_in_bike', 'Bike_time',
+                 'T2','Pos_in_run', 'Run_time','Race_control', 'Time','Rank',
+                 'Category']
 DATA_DIR_NAME = "raw_data"
 
 # Constants

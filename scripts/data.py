@@ -1,5 +1,5 @@
 import pandas as pd
-
+from scripts.params import *
 
 def get_clean_data(mens_df, women_df):
     """
@@ -51,9 +51,6 @@ def get_clean_data(mens_df, women_df):
 
     # Create a new position column
     dataframe["Pos_after_cleaning"] = range(1, len(dataframe) + 1)
-    dataframe = dataframe[['Position', 'Pos_after_cleaning', 'Number', 'Name',
-                        'Pos_in_swim','Swim_time','T1','Pos_in_bike', 'Bike_time',
-                        'T2','Pos_in_run', 'Run_time','Race_control', 'Time',
-                        'Rank', 'Category']]
+    dataframe = dataframe[COLUMNS_ORDERING]
 
     return dataframe

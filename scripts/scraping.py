@@ -11,7 +11,8 @@ from scripts.params import *
 
 def scrape_mens_results():
     """
-    Scrapping mens results for website and returns a data frame with data ordered like website
+    Scrapping mens results from website and returns a data frame with data
+    classified like on website
     """
     # Driver installation
     web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -55,14 +56,15 @@ def scrape_mens_results():
     if not os.path.exists(DATA_DIR_PATH):
         os.makedirs(DATA_DIR_PATH)
     mens_df.to_csv(CSV_MENS_PATH, index=False)
-    print("Mens data saved ✅")
+    print("Mens data saved 💾")
 
     return mens_df
 
 
 def scrape_women_results():
     """
-    Scrapping women results for website and returns a data frame with data ordered like website
+    Scrapping women results from website and returns a data frame with data
+    classified like on website
     """
     # Driver installation
     web_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()))
@@ -103,6 +105,6 @@ def scrape_women_results():
     if not os.path.exists(DATA_DIR_PATH):
         os.makedirs(DATA_DIR_PATH)
     women_df.to_csv(CSV_WOMEN_PATH, index=False)
-    print("Women data saved ✅")
+    print("Women data saved 💾")
 
     return women_df
