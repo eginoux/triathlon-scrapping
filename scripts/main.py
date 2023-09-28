@@ -53,23 +53,31 @@ def get_results(dataframe):
         my_row = dataframe[dataframe["Name"] == name]
         dataframe = dataframe[dataframe["Category"] == category]
         date_time_columns = list(dataframe.select_dtypes(include = ["datetime64[ns]"]).columns)
-        print(f"{10 * '#'} Please find {name} results below {10 * '#'}")
+        print(f"{30 * '#'} Please find {name} results below {30 * '#'}")
         for column in date_time_columns:
             my_time = my_row[column].dt.time.astype(str).values
             my_time = my_time[0]
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
-            print(f"{column} was {my_time} (average was {mean_time} for {category} category)")
+            min_time = dataframe[column].min()
+            min_time = min_time.strftime("%H:%M:%S")
+            max_time = dataframe[column].max()
+            max_time = max_time.strftime("%H:%M:%S")
+            print(f"{column} was {my_time} (average was {mean_time}, min was {min_time} and max was {max_time} for {category} category)")
     else:
         my_row = dataframe[dataframe["Name"] == name]
         date_time_columns = list(dataframe.select_dtypes(include = ["datetime64[ns]"]).columns)
-        print(f"{10 * '#'} Please find {name} results below {10 * '#'}")
+        print(f"{22 * '#'} Please find {name} results below {22 * '#'}")
         for column in date_time_columns:
             my_time = my_row[column].dt.time.astype(str).values
             my_time = my_time[0]
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
-            print(f"{column} was {my_time} (average was {mean_time})")
+            min_time = dataframe[column].min()
+            min_time = min_time.strftime("%H:%M:%S")
+            max_time = dataframe[column].max()
+            max_time = max_time.strftime("%H:%M:%S")
+            print(f"{column} was {my_time} (average was {mean_time}, min was {min_time} and max was {max_time})")
 
 
 
