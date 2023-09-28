@@ -31,7 +31,8 @@ def get_results(dataframe):
     Takes a data frame and then:
     - Asks for a participant name
     - Asks for a category or not and which one
-    Print results of participant
+    Print results of participant and average timing depending category or
+    whole competitors
     """
     name_list = list(dataframe["Name"].unique())
     category_list = list(dataframe["Category"].unique())
@@ -58,7 +59,7 @@ def get_results(dataframe):
             my_time = my_time[0]
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
-            print(f"{column} was {my_time} and the average {column} for {category} category was {mean_time}")
+            print(f"{column} was {my_time} (average was {mean_time} for {category} category)")
     else:
         my_row = dataframe[dataframe["Name"] == name]
         date_time_columns = list(dataframe.select_dtypes(include = ["datetime64[ns]"]).columns)
@@ -68,7 +69,7 @@ def get_results(dataframe):
             my_time = my_time[0]
             mean_time = dataframe[column].mean()
             mean_time = mean_time.strftime("%H:%M:%S")
-            print(f"{column} was {my_time} and the average {column} for all categories was {mean_time}")
+            print(f"{column} was {my_time} (average was {mean_time} for {category} category)")
 
 
 
