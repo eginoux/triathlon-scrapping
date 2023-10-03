@@ -40,8 +40,11 @@ def get_results(dataframe):
     while not name in name_list:
         name = input("Participant not found. Enter a valid participant: [LASTNAME Name] ")
 
+    answers = ["Y", "y", "N", "n"]
     question = input("Do you want to specify a category? [Y/n] ")
-    if question == "Y":
+    while not question in answers:
+        question = input("Eneter a valid option for category: [Y/n]")
+    if question == "Y" or question == "y":
         category = input("Enter a valid category: ")
         while not category in category_list:
             print(category_list)
